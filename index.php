@@ -35,11 +35,10 @@ include'functions.php';
             <li><a href="?m=employee"><span class="glyphicon glyphicon-flash"></span> Employee</a></li>
             <li><a href="?m=product"><span class="glyphicon glyphicon-list"></span> Produk</a></li>
             <li><a href="?m=time"><span class="glyphicon glyphicon-time"></span>Waktu</a></li>
-            <li><a href="?m=relasi"><span class="glyphicon glyphicon-stats"></span> Fakta</a></li> 
+            <li><a href="?m=fakta"><span class="glyphicon glyphicon-stats"></span> Fakta</a></li> 
             <li><a href="?m=password"><span class="glyphicon glyphicon-lock"></span> Password</a></li>
             <li><a href="aksilog.php?act=logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             <?php else:?>
-            <li><a href="?m=konsultasi"><span class="glyphicon glyphicon-stats"></span> Konsultasi</a></li> 
             <li><a href="?m=login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             <?php endif?>               
           </ul>          
