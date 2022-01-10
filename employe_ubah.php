@@ -1,5 +1,5 @@
 <?php
-    $row = $db->get_row("SELECT * FROM tb_gejala WHERE kode_gejala='$_GET[ID]'"); 
+    $row = $db->get_row("SELECT * FROM dim_employee WHERE id_employee='$_GET[ID]'"); 
 ?>
 <div class="page-header">
     <h1>Edit Employee</h1>
@@ -10,19 +10,27 @@
         <form method="post">
             <div class="form-group">
                 <label>Kode <span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="kode" readonly="readonly" value="<?=$row->kode_gejala?>"/>
+                <input class="form-control" type="number" name="kode" readonly="readonly" value="<?=$row->id_employee?>"/>
             </div>
             <div class="form-group">
-                <label>Nama Gejala <span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="nama" value="<?=$row->nama_gejala?>"/>
+                <label>Nama<span class="text-danger">*</span></label>
+                <input class="form-control" type="text" name="nama" value="<?=$row->nama?>"/>
             </div>
             <div class="form-group">
-                <label>Keterangan <span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="keterangan" value="<?=$row->keterangan?>" />
+                <label>Job Title<span class="text-danger">*</span></label>
+                <input class="form-control" type="text" name="nama" value="<?=$row->jobTitle?>"/>
+            </div>
+            <div class="form-group">
+                <label>City</label>
+                <input class="form-control" type="text" name="city" value="<?=$row->city?>" />
+            </div>
+            <div class="form-group">
+                <label>Country</label>
+                <input class="form-control" type="text" name="country" value="<?=$row->country?>" />
             </div>
             <div class="form-group">
                 <button class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Save</button>
-                <a class="btn btn-danger" href="?m=gejala"><span class="glyphicon glyphicon-arrow-left"></span> Cencel</a>
+                <a class="btn btn-danger" href="?m=employee"><span class="glyphicon glyphicon-arrow-left"></span> Cencel</a>
             </div>
         </form>
     </div>

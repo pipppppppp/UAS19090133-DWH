@@ -37,148 +37,138 @@ if ($mod=='login'){
 }
 
 /** Customer */
-// else if($mod=='cust_tambah'){
-//     $id = $_POST['Id']
-//     $kode = $_POST['id_cust'];
-//     $nama = $_POST['nama'];
-//     $city = $_POST['city'];
-//     $country = $_POST['country'];
-//     if($kode=='' || $nama=='')zc
-//         print_msg("Field yang bertanda * tidak boleh kosong!");
-//     elseif($db->get_results("SELECT * FROM dim_cust WHERE id_cust ='$kode'"))
-//         print_msg("Kode sudah ada!");
-//     else{
-//         $db->query("INSERT INTO dim_cust (Id, id_cust, nama, city, country) VALUES ('$id', '$kode', '$nama', '$city, $country')");                       
-//         redirect_js("index.php?m=cust");
-//     }
-// } else if($mod=='cust_ubah'){
-//     $id = $_POST['Id']
-//     $kode = $_POST['id_cust'];
-//     $nama = $_POST['nama'];
-//     $city = $_POST['city'];
-//     $country = $_POST['country'];
-//     if($kode=='' || $nama=='')
-//         print_msg("Field yang bertanda * tidak boleh kosong!");
-//     else{
-//         $db->query("UPDATE dim_cust SET nama='$nama', city='$city', country='$country' WHERE id_cust='$_GET[id_cust]'");
-//         redirect_js("index.php?m=cust");
-//     }
-// } else if ($act=='cust_hapus'){
-//     $db->query("DELETE FROM dim_cust WHERE id_cust='$_GET[id_cust]'");
-//     // $db->query("DELETE FROM tb_relasi WHERE kode_diagnosa='$_GET[ID]'");
-//     header("location:index.php?m=cust");
-// } 
+else if($mod=='cust_tambah'){
+    $kode = $_POST['id_cust'];
+    $nama = $_POST['nama'];
+    $city = $_POST['city'];
+    $country = $_POST['country'];
+    if($kode=='' || $nama=='')
+        print_msg("Field yang bertanda * tidak boleh kosong!");
+    elseif($db->get_results("SELECT * FROM dim_cust WHERE id_cust ='$kode'"))
+        print_msg("Kode sudah ada!");
+    else{
+        $db->query("INSERT INTO dim_cust (id_cust, nama, city, country) VALUES ('$kode', '$nama', '$city, $country')");                       
+        redirect_js("index.php?m=cust");
+    }
+} else if($mod=='cust_ubah'){
+    $kode = $_POST['id_cust'];
+    $nama = $_POST['nama'];
+    $city = $_POST['city'];
+    $country = $_POST['country'];
+    if($kode=='' || $nama=='')
+        print_msg("Field yang bertanda * tidak boleh kosong!");
+    else{
+        $db->query("UPDATE dim_cust SET nama='$nama', city='$city', country='$country' WHERE id_cust='$_GET[ID]'");
+        redirect_js("index.php?m=cust");
+    }
+} else if ($act=='cust_hapus'){
+    $db->query("DELETE FROM dim_cust WHERE id_cust='$_GET[ID]'");
+    header("location:index.php?m=cust");
+} 
 
-// /** EMPLOYEE */    
-// if($mod=='employe_tambah'){
-//     $id = $_POST['Id']
-//     $kode = $_POST['id_employee'];
-//     $nama = $_POST['nama'];
-//     $Jt = $_POST['jobTitle'];
-//     $city = $_POST['city'];
-//     $country = $_POST['country'];
+/** EMPLOYEE */    
+if($mod=='employe_tambah'){
+    $kode = $_POST['id_employee'];
+    $nama = $_POST['nama'];
+    $Jt = $_POST['jobTitle'];
+    $city = $_POST['city'];
+    $country = $_POST['country'];
     
-//     if($kode=='' || $nama=='')
-//         print_msg("Field bertanda * tidak boleh kosong!");
-//     elseif($db->get_results("SELECT * FROM dim_employee WHERE id_employee='$kode'"))
-//         print_msg("Kode sudah ada!");
-//     else{
-//         $db->query("INSERT INTO dim_employee (Id, id_employee, nama, jobTitle, city, country) VALUES ('$id', '$kode', '$nama', '$jt', '$city', '$country')");
-//         $id = $db->insert_id;                           
-//         redirect_js("index.php?m=employee");
-//     }                    
-// } else if($mod=='employe_ubah'){
-//     $id = $_POST['Id']
-//     $kode = $_POST['kode'];
-//     $kode = $_POST['id_employee'];
-//     $nama = $_POST['nama'];
-//     $Jt = $_POST['jobTitle'];
-//     $city = $_POST['city'];
-//     $country = $_POST['country'];
+    if($kode=='' || $nama=='')
+        print_msg("Field yang bertanda * tidak boleh kosong!");
+    elseif($db->get_results("SELECT * FROM dim_employee WHERE id_employee ='$kode'"))
+        print_msg("Kode sudah ada!");
+    else{
+        $db->query("INSERT INTO dim_employee (id_employee, nama, jobTitle, city, country) VALUES ('$kode', '$nama', '$jt', '$city', '$country')");                       
+        redirect_js("index.php?m=employee");
+    }
+} else if($mod=='employe_ubah'){
+    $kode = $_POST['id_employee'];
+    $nama = $_POST['nama'];
+    $Jt = $_POST['jobTitle'];
+    $city = $_POST['city'];
+    $country = $_POST['country'];
     
-//     if($kode=='' || $nama=='')
-//         print_msg("Field bertanda * tidak boleh kosong!");
-//     else{
-//         redirect_js("index.php?m=employee");
-//     }    
-// } else if ($act=='employe_hapus'){
-//     $db->query("DELETE FROM dim_employee WHERE id_employee='$_GET[Id]'");
-//     // $db->query("DELETE FROM tb_relasi WHERE kode_gejala='$_GET[ID]'");
-//     header("location:index.php?m=employee");
-// } 
+    if($kode=='' || $nama=='')
+        print_msg("Field bertanda * tidak boleh kosong!");
+    elseif($db->get_results("SELECT * FROM dim_employee WHERE id_employee='$kode'"))
+        print_msg("Kode sudah ada!");
+    else{
+        $db->query("INSERT INTO dim_employee (id_employee, nama, jobTitle, city, country) VALUES ('$kode', '$nama', '$jt', '$city', '$country')");
+        $id = $db->insert_id;                           
+        redirect_js("index.php?m=employee");
+    }                      
+} else if ($act=='employe_hapus'){
+    $db->query("DELETE FROM dim_employee WHERE id_employee='$_GET[ID]'");
+    header("location:index.php?m=employee");
+} 
 
-// // Produk
-// if($mod=='product_tambah'){
-//     $id = $_POST['Id']
-//     $kode = $_POST['id_product'];
-//     $nama = $_POST['nama'];
-//     $pl = $_POST['productLine'];
-//     $qo = $_POST['QuantityOrder'];
-//     $stock = $_POST['Stock'];
+// Produk
+if($mod=='product_tambah'){
+    $kode = $_POST['id_product'];
+    $nama = $_POST['nama'];
+    $pl = $_POST['productLine'];
+    $qo = $_POST['QuantityOrder'];
+    $stock = $_POST['Stock'];
     
-//     if($kode=='' || $nama=='')
-//         print_msg("Field bertanda * tidak boleh kosong!");
-//     elseif($db->get_results("SELECT * FROM dim_product WHERE id_product='$kode'"))
-//         print_msg("Kode sudah ada!");
-//     else{
-//         $db->query("INSERT INTO dim_product (Id, id_product, nama, productLine, QuantityOrder, Stock) VALUES ('$id', '$kode', '$nama', '$pl', '$qo', '$stock')");
-//         $id = $db->insert_id;                           
-//         redirect_js("index.php?m=product");
-//     }                    
-// } else if($mod=='product_ubah'){
-//     $id = $_POST['Id']
-//     $kode = $_POST['id_product'];
-//     $nama = $_POST['nama'];
-//     $pl = $_POST['productLine'];
-//     $qo = $_POST['QuantityOrder'];
-//     $stock = $_POST['Stock'];
+    if($kode=='' || $nama=='')
+        print_msg("Field bertanda * tidak boleh kosong!");
+    elseif($db->get_results("SELECT * FROM dim_product WHERE id_product='$kode'"))
+        print_msg("Kode sudah ada!");
+    else{
+        $db->query("INSERT INTO dim_product (id_product, nama, productLine, QuantityOrder, Stock) VALUES ('$kode', '$nama', '$pl', '$qo', '$stock')");
+        $id = $db->insert_id;                           
+        redirect_js("index.php?m=product");
+    }                    
+} else if($mod=='product_ubah'){
+    $kode = $_POST['id_product'];
+    $nama = $_POST['nama'];
+    $pl = $_POST['productLine'];
+    $qo = $_POST['QuantityOrder'];
+    $stock = $_POST['Stock'];
     
-//     if($kode=='' || $nama=='')
-//         print_msg("Field bertanda * tidak boleh kosong!");
-//     else{
-//         $db->query("UPDATE dim_product SET nama='$nama' WHERE id_product='$_GET[ID]'");
-//         redirect_js("index.php?m=product");
-//     }    
-// } else if ($act=='product_hapus'){
-//     $db->query("DELETE FROM dim_product WHERE id_product='$_GET[ID]'");
-//     // $db->query("DELETE FROM tb_relasi WHERE kode_gejala='$_GET[ID]'");
-//     header("location:index.php?m=product");
-// } 
+    if($kode=='' || $nama=='')
+        print_msg("Field bertanda * tidak boleh kosong!");
+    else{
+        $db->query("UPDATE dim_product SET nama='$nama' WHERE id_product='$_GET[ID]'");
+        redirect_js("index.php?m=product");
+    }    
+} else if ($act=='product_hapus'){
+    $db->query("DELETE FROM dim_product WHERE id_product='$_GET[ID]'");
+    header("location:index.php?m=product");
+} 
 
-// // Time
-// if($mod=='time_tambah'){
-//     $id = $_POST['Id']
-//     $kode = $_POST['id_product'];
-//     $nama = $_POST['nama'];
-//     $pl = $_POST['productLine'];
-//     $qo = $_POST['QuantityOrder'];
-//     $stock = $_POST['Stock'];
+// Time
+if($mod=='time_tambah'){
+    $kode = $_POST['id'];
+    $tanggal = $_POST['tanggal'];
+    $bulan = $_POST['bulan'];
+    $tahun = $_POST['tahun'];
     
-//     if($kode=='' || $nama=='')
-//         print_msg("Field bertanda * tidak boleh kosong!");
-//     elseif($db->get_results("SELECT * FROM dim_product WHERE id_product='$kode'"))
-//         print_msg("Kode sudah ada!");
-//     else{
-//         $db->query("INSERT INTO dim_product (Id, id_product, nama, productLine, QuantityOrder, Stock) VALUES ('$id', '$kode', '$nama', '$pl', '$qo', '$stock')");
-//         $id = $db->insert_id;                           
-//         redirect_js("index.php?m=product");
-//     }                    
-// } else if($mod=='time_ubah'){
-//     $id = $_POST['Id']
-//     $kode = $_POST['kode'];
-//     $nama = $_POST['nama'];
-    
-//     if($kode=='' || $nama=='')
-//         print_msg("Field bertanda * tidak boleh kosong!");
-//     else{
-//         $db->query("UPDATE tb_gejala SET nama_gejala='$nama', keterangan='$keterangan' WHERE kode_gejala='$_GET[ID]'");
-//         redirect_js("index.php?m=employee");
-//     }    
-// } else if ($act=='time_hapus'){
-//     $db->query("DELETE FROM dim_employee WHERE id_employee='$_GET[Id]'");
-//     $db->query("DELETE FROM tb_relasi WHERE kode_gejala='$_GET[ID]'");
-//     header("location:index.php?m=employee");
-// } 
+    if($kode=='' || $tanggal=='' || $bulan == '' || $tahun=='')
+        print_msg("Field bertanda * tidak boleh kosong!");
+    elseif($db->get_results("SELECT * FROM dim_waktu WHERE id='$kode'"))
+        print_msg("Kode sudah ada!");
+    else{
+        $db->query("INSERT INTO dim_waktu (id, tanggal, bulan, tahun) VALUES ('$kode', '$tanggal', '$bulan', '$tahun')");
+        $id = $db->insert_id;                           
+        redirect_js("index.php?m=time");
+    }                    
+} else if($mod=='time_ubah'){
+    $kode = $_POST['id'];
+    $tanggal = $_POST['tanggal'];
+    $bulan = $_POST['bulan'];
+    $tahun = $_POST['tahun'];
+    if($kode=='' || $tanggal=='' || $bulan == '' || $tahun=='')
+        print_msg("Field bertanda * tidak boleh kosong!");
+    else{
+        $db->query("UPDATE dim_waktu SET tanggal='$tanggal' WHERE id='$_GET[ID]'");
+        redirect_js("index.php?m=time");
+    }    
+} else if ($act=='time_hapus'){
+    $db->query("DELETE FROM dim_waktu WHERE id='$_GET[Id]'");
+    header("location:index.php?m=time");
+} 
 
 
 // /** Fakta TAMBAH */ 
@@ -193,7 +183,7 @@ if ($mod=='login'){
     
 //     if($id=='' || $waktu=='' || $amount='')
 //         print_msg("Field bertanda * tidak boleh kosong!");
-//     elseif($db->get_results("SELECT * FROM fakta WHERE id='$id'"))
+//     elseif($db->get_results("SELECT * FROM fakta WHERE sk_waktu='$waktu'"))
 //         print_msg("Kode sudah ada!");
 //     else{
 //         $db->query("INSERT INTO fakta (Id, sk_employee, id_produk, sk_customer, productLine, QuantityOrder, QuantityOrder, sk_waktu, amount) VALUES ('$id', '$ske', '$skc', '$skp', '$waktu', '$amount')");
@@ -214,11 +204,10 @@ if ($mod=='login'){
 //         print_msg("Field bertanda * tidak boleh kosong!");
 //     else{
 //         $db->query("UPDATE fakta SET sk_produk='$skp', amount='$amount' WHERE ID='$_GET[ID]'");
-//         redirect_js("index.php?m=employee");
+//         redirect_js("index.php?m=fakta");
 //     }    
 // } else if ($act=='fakta_hapus'){
 //     $db->query("DELETE FROM fakta WHERE id='$_GET[ID]'");
-//     // $db->query("DELETE FROM tb_relasi WHERE kode_gejala='$_GET[ID]'");
 //     header("location:index.php?m=fakta");     
 // }
 ?>

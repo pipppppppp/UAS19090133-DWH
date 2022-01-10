@@ -1,5 +1,5 @@
 <?php
-    $row = $db->get_row("SELECT * FROM dim_cust WHERE id_cust='$_GET[id_cust]'"); 
+    $row = $db->get_row("SELECT * FROM dim_cust WHERE id_cust='$_GET[ID]'"); 
 ?>
 <div class="page-header">
     <h1>Edit Customer</h1>
@@ -10,18 +10,18 @@
         <form method="post">
             <div class="form-group">
                 <label>Kode <span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="id_cust" readonly="readonly" value="<?=$row->id_cust?>"/>
+                <input class="form-control" type="number" name="kode" readonly="readonly" value="<?=$row->id_cust?>"/>
             </div>
             <div class="form-group">
                 <label>Nama <span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="nama" value="<?=$row->nama?>"/>
             </div>
             <div class="form-group">
-                <label>City <span class="text-danger">*</span></label>
+                <label>City</label>
                 <input class="form-control" type="text" name="city" value="<?=$row->city?>"/>
             </div>
             <div class="form-group">
-                <label>Country <span class="text-danger">*</span></label>
+                <label>Country</label>
                 <input class="form-control" type="text" name="country" value="<?=$row->country?>"/>
             </div>
             <div class="page-header">

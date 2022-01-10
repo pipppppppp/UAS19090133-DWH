@@ -28,12 +28,12 @@ function get_jk_option($selected = ''){
 
 function get_diagnosa_option($selected = ''){
     global $db;
-    $rows = $db->get_results("SELECT kode_diagnosa, nama_diagnosa FROM tb_diagnosa ORDER BY kode_diagnosa");
+    $rows = $db->get_results("SELECT id_cust, nama FROM dim_cust ORDER BY id_cust");
     foreach($rows as $row){
-        if($row->kode_diagnosa==$selected)
-            $a.="<option value='$row->kode_diagnosa' selected>[$row->kode_diagnosa] $row->nama_diagnosa</option>";
+        if($row->id_cust==$selected)
+            $a.="<option value='$row->id_cust' selected>[$row->id_cust] $row->nama</option>";
         else
-            $a.="<option value='$row->kode_diagnosa'>[$row->kode_diagnosa] $row->nama_diagnosa</option>";
+            $a.="<option value='$row->id_cust'>[$row->id_cust] $row->nama</option>";
     }
     return $a;
 }

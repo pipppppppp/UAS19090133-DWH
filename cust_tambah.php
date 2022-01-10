@@ -7,19 +7,19 @@
         <form method="post">
             <div class="form-group">
                 <label>Kode <span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="kode" value="<?=$_POST['id_cust']?>"/>
+                <input class="form-control" type="number" name="kode" value="<?=$_POST['id_cust']?>"/>
             </div>
             <div class="form-group">
                 <label>Nama <span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="nama" value="<?=$_POST['nama']?>"/>
             </div>
-            <div class="form-group">S
+            <div class="form-group">
                 <label>City</label>
-                <input class="form-control mce" name="city"><?=$_POST['city']?>/>
+                <input class="form-control" type="text" name="city"><?=$_POST['city']?>
             </div>
             <div class="form-group">
                 <label>Country</label>
-                <input class="form-control mce" name="country"><?=$_POST['country']?>/>
+                <input class="form-control" type="text" name="country"><?=$_POST['country']?>
             </div>
             <div class="form-group">
                 <button class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Save</button>

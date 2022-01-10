@@ -1,35 +1,34 @@
 <div class="page-header">
-    <h1>New Relasi</h1>
+    <h1>New Product</h1>
 </div>
 <div class="row">
     <div class="col-sm-6">
         <?php if($_POST) include'aksilog.php'?>
         <form method="post">
+            
             <div class="form-group">
-                <label>Diagnosa <span class="text-danger">*</span></label>
-                <select class="form-control" name="kode_diagnosa">
-                    <option value=""></option>
-                    <?=get_diagnosa_option($_POST['kode_diagnosa'])?>
-                </select>
+                <label>Kode <span class="text-danger">*</span></label>
+                <input class="form-control" type="number" name="kode" value="<?=$_POST['kode']?>"/>
             </div>
             <div class="form-group">
-                <label>Gejala <span class="text-danger">*</span></label>
-                <select class="form-control" name="kode_gejala">
-                    <option value=""></option>
-                    <?=get_gejala_option($_POST['kode_gejala'])?>
-                </select>
+                <label>Nama<span class="text-danger">*</span></label>
+                <input class="form-control" type="text" name="nama" value="<?=$_POST['nama']?>"/>
             </div>
             <div class="form-group">
-                <label>MB <span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="mb" value="<?=$_POST['mb']?>" />
+                <label>Produk Line</label>
+                <input class="form-control" type="text" name="nama" value="<?=$_POST['productLine']?>"/>
             </div>
             <div class="form-group">
-                <label>MD <span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="md" value="<?=$_POST['md']?>" />
+                <label>Quantity Order </label>
+                <input class="form-control" type="text" name="nama" value="<?=$_POST['QuantityOrder']?>"/>
+            </div>
+            <div class="form-group">
+                <label>Stock </label>
+                <input class="form-control" type="text" name="nama" value="<?=$_POST['Stock']?>"/>
             </div>
             <div class="form-group">
                 <button class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Save</button>
-                <a class="btn btn-danger" href="?m=diagnosa"><span class="glyphicon glyphicon-arrow-left"></span> Cencel</a>
+                <a class="btn btn-danger" href="?m=product"><span class="glyphicon glyphicon-arrow-left"></span> Cencel</a>
             </div>
         </form>
     </div>
